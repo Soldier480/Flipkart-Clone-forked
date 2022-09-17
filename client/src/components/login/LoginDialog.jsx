@@ -75,6 +75,14 @@ const CreateAccount = styled(Typography)`
   cursor: pointer;
 `;
 
+const Error = styled(Typography)`
+    font-size: 10px;
+    color: #ff6161;
+    line-height: 0;
+    margin-top: 10px;
+    font-weight: 600;
+`
+
 const accountInitialValues = {
   login: {
     view: "login",
@@ -104,13 +112,14 @@ const loginInitialValues = {
 const LoginDialog = ({ open, setOpen }) => {
   const [login, setLogin] = useState(loginInitialValues);
   const [signup, setSignup] = useState(signupInitialValues);
-  // const [ error, showError] = useState(false);
+  const [error, showError] = useState(false);
   const [account, toggleAccount] = useState(accountInitialValues.login);
   const { setAccount } = useContext(DataContext);
 
   const closeHandler = () => {
     setOpen(false);
     toggleAccount(accountInitialValues.login);
+    showError(false);
   };
 
   const toggleSignup = () => {
@@ -133,8 +142,15 @@ const LoginDialog = ({ open, setOpen }) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   }
 
-  const loginUser = () => {
-    let response = authenticateLogin(login);
+  const loginUser = async () => {
+    let response = await authenticateLogin(login);
+    console.log(response);
+    if (response.status === 200) {
+      closeHandler();
+      setAccount(response.data.data.firstname);
+    } else {
+      showError(true);
+    }
   }
 
   return (
@@ -157,11 +173,11 @@ const LoginDialog = ({ open, setOpen }) => {
                 variant="standard"
                 onChange={(e) => onValueChange(e)}
                 name="username"
-                label="Enter Email/Mobile number"
+                label="Enter Username"
               />
-              {/* {error && (
+              {error && (
                 <Error>Please enter valid Email ID/Mobile number</Error>
-              )} */}
+              )}
               <TextField
                 variant="standard"
                 onChange={(e) => onValueChange(e)}
