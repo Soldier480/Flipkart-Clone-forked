@@ -11,7 +11,7 @@ import {
 
 import { useState, useContext } from "react";
 import { DataContext } from "../../context/DataProvider";
-import { authenticateSignup } from "../../service/api";
+import { authenticateSignup, authenticateLogin } from "../../service/api";
 
 const Component = styled(Box)`
   height: 70vh;
@@ -96,8 +96,13 @@ const signupInitialValues = {
   password: "",
   phone: "",
 };
+
+const loginInitialValues = {
+  username: '',
+  password: ''
+}
 const LoginDialog = ({ open, setOpen }) => {
-  // const [ login, setLogin ] = useState(loginInitialValues);
+  const [login, setLogin] = useState(loginInitialValues);
   const [signup, setSignup] = useState(signupInitialValues);
   // const [ error, showError] = useState(false);
   const [account, toggleAccount] = useState(accountInitialValues.login);
@@ -124,6 +129,14 @@ const LoginDialog = ({ open, setOpen }) => {
     setAccount(signup.firstname);
   };
 
+  const onValueChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  }
+
+  const loginUser = () => {
+    let response = authenticateLogin(login);
+  }
+
   return (
     <Dialog
       open={open}
@@ -142,7 +155,7 @@ const LoginDialog = ({ open, setOpen }) => {
             <Wrapper>
               <TextField
                 variant="standard"
-                // onChange={(e) => onValueChange(e)}
+                onChange={(e) => onValueChange(e)}
                 name="username"
                 label="Enter Email/Mobile number"
               />
@@ -151,7 +164,7 @@ const LoginDialog = ({ open, setOpen }) => {
               )} */}
               <TextField
                 variant="standard"
-                // onChange={(e) => onValueChange(e)}
+                onChange={(e) => onValueChange(e)}
                 name="password"
                 label="Enter Password"
               />
@@ -159,7 +172,7 @@ const LoginDialog = ({ open, setOpen }) => {
                 By continuing, you agree to Flipkart's Terms of Use and Privacy
                 Policy.
               </Text>
-              {/* <LoginButton onClick={() => loginUser()}>Login</LoginButton> */}
+              <LoginButton onClick={() => loginUser()}>Login</LoginButton>
               <Text style={{ textAlign: "center" }}>OR</Text>
               <RequestOTP>Request OTP</RequestOTP>
               <CreateAccount onClick={() => toggleSignup()}>
