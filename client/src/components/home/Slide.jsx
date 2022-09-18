@@ -4,7 +4,7 @@ import Carousel from "react-multi-carousel";
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 1,
+        items: 5,
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -34,7 +34,7 @@ const Slide = ({ products }) => {
         >
             {
                 products.map(product => (
-                    <img src={product.url} alt="banner" />
+                    <img src={product.url} alt="product" />
                 ))
             }
         </Carousel>
