@@ -8,6 +8,7 @@ import NavBar from "./NavBar";
 import Banner from "./Banner";
 import { getProducts } from "../../redux/actions/productActions";
 import Slide from './Slide';
+import { MidSection } from './MidSection';
 
 //
 const Component = styled(Box)`
@@ -31,12 +32,13 @@ const Home = () => {
             <Component>
                 <Banner />
                 <MidSlide products={products} title="Deal of the Day" timer={true} />
-                <Slide products={products} title="Discounts for you" timer={false}/>
-                <Slide products={products} title="Suggesting Items" timer={false}/>
-                <Slide products={products} title="Top Selection" timer={false}/>
-                <Slide products={products} title="Recommended Items" timer={false}/>
-                <Slide products={products} title="Trending Offers" timer={false}/>
-                <Slide products={products} title="Season's top picks" timer={false}/>
+                <MidSection />
+                <Slide products={products} title="Discounts for you" timer={false} />
+                <Slide products={products} title="Suggesting Items" timer={false} />
+                <Slide products={products} title="Top Selection" timer={false} />
+                <Slide products={products} title="Recommended Items" timer={false} />
+                <Slide products={products} title="Trending Offers" timer={false} />
+                <Slide products={products} title="Season's top picks" timer={false} />
             </Component>
         </>
     );
