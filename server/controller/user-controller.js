@@ -1,4 +1,4 @@
-import User from "../model/user-schema.js";
+import User from "../model/userSchema.js";
 
 export const userSignup = async (req, res) => {
   try {
@@ -25,7 +25,7 @@ export const userlogin = async (req, res) => {
 
     let user = await User.findOne({ username: username, password: password });
     if (user) {
-      return res.status(200).json({data : user});
+      return res.status(200).json(`${req.body.username} logged in successfully..`);
     }else{
       return res.status(401).json(`Invalid Login`);
     }
