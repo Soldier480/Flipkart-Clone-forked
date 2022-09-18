@@ -1,6 +1,7 @@
 import { styled, Box } from '@mui/material';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { MidSlide } from "./MidSlide";
 
 // components
 import NavBar from "./NavBar";
@@ -29,7 +30,7 @@ const Home = () => {
             <NavBar />
             <Component>
                 <Banner />
-                <Slide products={products} title="Deal of the Day" timer={true} />
+                <MidSlide products={products} title="Deal of the Day" timer={true} />
                 <Slide products={products} title="Discounts for you" timer={false}/>
                 <Slide products={products} title="Suggesting Items" timer={false}/>
                 <Slide products={products} title="Top Selection" timer={false}/>
