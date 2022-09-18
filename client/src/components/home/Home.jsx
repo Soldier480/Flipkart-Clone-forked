@@ -1,4 +1,3 @@
-import { Fragment } from "react"; // to avoid creation of extra div.
 import { styled, Box } from '@mui/material';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from "./NavBar";
 import Banner from "./Banner";
 import { getProducts } from "../../redux/actions/productActions";
+import Slide from './Slide';
 
 //
 const Component = styled(Box)`
@@ -22,15 +22,16 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getProducts());
+        dispatch(getProducts())
     }, [dispatch])
     return (
-        <Fragment>
+        <>
             <NavBar />
             <Component>
                 <Banner />
+                <Slide products={products} />
             </Component>
-        </Fragment>
+        </>
     );
 };
 
