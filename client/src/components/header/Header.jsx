@@ -34,18 +34,17 @@ const PlusImage = styled('img')({
 
 const MenuButton = styled(IconButton)(({ theme }) => ({
     display: 'none',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
         display: 'block'
     }
 }));
 
-const CustomButtonWrapper = styled('span')(({ theme }) => ({
-    margin: '0 5% 0 auto',
+const CustomButtonWrapper = styled('span')(({ theme }) => ({ 
+    margin: '0 5% 0 auto', 
     [theme.breakpoints.down('sm')]: {
         display: 'none'
     }
 }));
-
 
 const Header = () => {
     const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
@@ -62,7 +61,7 @@ const Header = () => {
     }
 
     const list = () => (
-        <Box style={{ width: 250 }} onClick={handleClose}>
+        <Box style={{ width: 290 }} onClick={handleClose}>
             <List>
                 <listItem button>
                     <CustomButtons />
