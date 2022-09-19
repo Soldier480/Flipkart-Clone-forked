@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./components/home/Home";
 import DataProvider from "./context/DataProvider";
-import DetailView from "./components/details/DetailView";
+import DetailView from "./components/ItemDetails/DetailView";
 
 function App() {
   return (
