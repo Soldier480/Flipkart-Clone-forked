@@ -7,7 +7,7 @@ const LeftContainer = styled(Box)(({ theme }) => ({
     minWidth: '40%',
     padding: '40px 0 0 80px',
     marginRight: '40px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
         padding: '20px 40px'
     }
 }))
@@ -18,12 +18,19 @@ const Image = styled('img')({
     width: '95%'
 });
 
-const StyledButton = styled(Button)`
-    width: 46%;
-    border-radius: 2px;
-    height: 50px;
-    color: #FFF;
-`;
+const StyledButton = styled(Button)(({ theme }) => ({
+    width: '48%',
+    borderRadius: 2,
+    height: 50,
+    [theme.breakpoints.down('lg')]: {
+        width: '46%'
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: '48%'
+    }
+
+}))
+
 
 const ActionItem = ({ product }) => {
 
