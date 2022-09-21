@@ -6,7 +6,8 @@ import router from "./routes/route.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { v4 as uuid } from 'uuid';
-import {useSelector, useDispatch} from 'react-redux';
+
+
 const app = express();
 
 dotenv.config();
