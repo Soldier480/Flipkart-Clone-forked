@@ -1,4 +1,5 @@
 import { Card, Box, Typography, Button, styled } from '@mui/material';
+
 import { addEllipsis } from '../../utils/common-utils';
 import GroupButton from './GroupButton';
 
@@ -40,7 +41,7 @@ const Remove = styled(Button)`
 
 const CartItem = ({ item, removeItemFromCart }) => {
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png';
-    
+
     return (
         <Component>
             <LeftComponent>
@@ -52,7 +53,7 @@ const CartItem = ({ item, removeItemFromCart }) => {
                 <SmallText>Seller:RetailNet
                     <span><img src={fassured} style={{ width: 50, marginLeft: 10 }} /></span>
                 </SmallText>
-                <Typography style={{ margin: '20px 0' }}>
+                <Typography style={{margin: '20px 0'}}>
                     <Cost component="span">₹{item.price.cost}</Cost>&nbsp;&nbsp;&nbsp;
                     <MRP component="span"><strike>₹{item.price.mrp}</strike></MRP>&nbsp;&nbsp;&nbsp;
                     <Discount component="span">{item.price.discount} off</Discount>

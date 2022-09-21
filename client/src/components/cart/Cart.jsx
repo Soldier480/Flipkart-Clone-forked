@@ -30,7 +30,7 @@ const Header = styled(Box)`
     background: #fff;
 `;
 
-const ButtonWrapper = styled(Box)`
+const BottomWrapper = styled(Box)`
     padding: 16px 22px;
     background: #fff;
     box-shadow: 0 -2px 10px 0 rgb(0 0 0 / 10%);
@@ -53,9 +53,9 @@ const Cart = () => {
     const { id } = useParams();
 
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
-        if (cartItems && id !== cartItems.id)
+        if(cartItems && id !== cartItems.id)   
             dispatch(addToCart(id));
         console.log(cartItems);
     }, [dispatch, cartItems, id]);
@@ -65,29 +65,30 @@ const Cart = () => {
     }
 
     const buyNow = async () => {
+       
     }
 
     return (
         <>
-            {cartItems.length ?
-                <Component container>
-                    <LeftComponent item lg={9} md={9} sm={12} xs={12}>
-                        <Header>
-                            <Typography style={{ fontWeight: 600, fontSize: 18 }}>My Cart ({cartItems?.length})</Typography>
-                        </Header>
-                        {cartItems.map(item => (
-                            <CartItem item={item} removeItemFromCart={removeItemFromCart} />
-                        ))
+        { cartItems.length ? 
+            <Component container>
+                <LeftComponent item lg={9} md={9} sm={12} xs={12}>
+                    <Header>
+                        <Typography style={{fontWeight: 600, fontSize: 18}}>My Cart ({cartItems?.length})</Typography>
+                    </Header>
+                        {   cartItems.map(item => (
+                                <CartItem item={item} removeItemFromCart={removeItemFromCart}/>
+                            ))
                         }
-                        <ButtonWrapper>
-                            <StyledButton onClick={() => buyNow()} variant="contained">Place Order</StyledButton>
-                        </ButtonWrapper>
-                    </LeftComponent>
-                    <Grid item lg={3} md={3} sm={12} xs={12}>
-                        <TotalView cartItems={cartItems} />
-                    </Grid>
-                </Component> : <EmptyCart />
-            }
+                    <BottomWrapper>
+                        <StyledButton onClick={() => buyNow()} variant="contained">Place Order</StyledButton>
+                    </BottomWrapper>
+                </LeftComponent>
+                <Grid item lg={3} md={3} sm={12} xs={12}>
+                    <TotalView cartItems={cartItems} />
+                </Grid>
+            </Component> : <EmptyCart />
+        }
         </>
 
     )

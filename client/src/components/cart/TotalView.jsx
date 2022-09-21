@@ -50,20 +50,19 @@ const TotalView = ({ cartItems }) => {
     useEffect(() => {
         totalAmount();
     }, [cartItems]);
-
+    
     const totalAmount = () => {
         let price = 0, discount = 0;
         console.log(cartItems);
         cartItems.map(item => {
             price += item.price.mrp
-            discount += (item.price.mrp - item.price.cost)
+            discount += (item.price.mrp - item.price.cost) 
         })
         setPrice(price);
         setDiscount(discount);
     }
 
     return (
-        // price box
         <Box>  {/* className={classes.component}> */}
             <Header>
                 <Heading>PRICE DETAILS</Heading>
