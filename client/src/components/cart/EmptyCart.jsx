@@ -23,7 +23,7 @@ const EmptyCart = () => {
     return (
         <Component>
             <Container>
-                <Image src={imgurl} />
+                <Image src={imgurl} alt="" />
                 <Typography>Your cart is empty!</Typography>
                 <Typography component="span">Add items to it now.</Typography>
             </Container>

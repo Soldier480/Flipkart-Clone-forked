@@ -30,7 +30,7 @@ const Header = styled(Box)`
     background: #fff;
 `;
 
-const BottomWrapper = styled(Box)`
+const ButtonWrapper = styled(Box)`
     padding: 16px 22px;
     background: #fff;
     box-shadow: 0 -2px 10px 0 rgb(0 0 0 / 10%);
@@ -79,9 +79,9 @@ const Cart = () => {
                             <CartItem item={item} removeItemFromCart={removeItemFromCart} />
                         ))
                         }
-                        <BottomWrapper>
+                        <ButtonWrapper>
                             <StyledButton onClick={() => buyNow()} variant="contained">Place Order</StyledButton>
-                        </BottomWrapper>
+                        </ButtonWrapper>
                     </LeftComponent>
                     <Grid item lg={3} md={3} sm={12} xs={12}>
                         <TotalView cartItems={cartItems} />

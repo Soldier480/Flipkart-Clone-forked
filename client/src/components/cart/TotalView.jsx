@@ -63,6 +63,7 @@ const TotalView = ({ cartItems }) => {
     }
 
     return (
+        // price box
         <Box>  {/* className={classes.component}> */}
             <Header>
                 <Heading>PRICE DETAILS</Heading>
